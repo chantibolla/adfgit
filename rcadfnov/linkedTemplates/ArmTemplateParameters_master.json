@@ -1,0 +1,57 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "rcadfnov"
+		},
+		"ASQLRC_password": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"LS_Data_lake_accountKey": {
+			"value": ""
+		},
+		"RC_BLOB_connectionString": {
+			"value": ""
+		},
+		"AKV_LS_properties_typeProperties_baseUrl": {
+			"value": "https://rckvnov.vault.azure.net/"
+		},
+		"ASQLRC_properties_typeProperties_server": {
+			"value": "@{linkedService().ServerName}"
+		},
+		"ASQLRC_properties_typeProperties_database": {
+			"value": "@{linkedService().DBName}"
+		},
+		"ASQLRC_properties_typeProperties_userName": {
+			"value": "Bollacha"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"value": "rcsqlserver.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"value": "rcdbazure"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"value": "Bollacha"
+		},
+		"LS_Data_lake_properties_typeProperties_url": {
+			"value": "https://rcazurestorageaccount.dfs.core.windows.net/"
+		},
+		"Event_triger_properties_typeProperties_scope": {
+			"value": "/subscriptions/988bbad3-94cd-4192-b70e-fceb7e135552/resourceGroups/rc_azure_cloud/providers/Microsoft.Storage/storageAccounts/rcazurestorageaccount"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

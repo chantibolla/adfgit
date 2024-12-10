@@ -1,0 +1,160 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "rcadfnov"
+		},
+		"ASQLRC_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'ASQLRC'"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage1'"
+		},
+		"AzureSqlDatabase1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
+		},
+		"LS_Data_lake_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Data_lake'"
+		},
+		"RC_BLOB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'RC_BLOB'"
+		},
+		"AKV_LS_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://rckvnov.vault.azure.net/"
+		},
+		"ASQLRC_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "@{linkedService().ServerName}"
+		},
+		"ASQLRC_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "@{linkedService().DBName}"
+		},
+		"ASQLRC_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Bollacha"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "rcsqlserver.database.windows.net"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "rcdbazure"
+		},
+		"AzureSqlDatabase1_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Bollacha"
+		},
+		"LS_Data_lake_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://rcazurestorageaccount.dfs.core.windows.net/"
+		},
+		"Event_triger_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/988bbad3-94cd-4192-b70e-fceb7e135552/resourceGroups/rc_azure_cloud/providers/Microsoft.Storage/storageAccounts/rcazurestorageaccount"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "rcadfnov_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ASQLRC_password": {
+						"value": "[parameters('ASQLRC_password')]"
+					},
+					"AzureBlobStorage1_connectionString": {
+						"value": "[parameters('AzureBlobStorage1_connectionString')]"
+					},
+					"AzureSqlDatabase1_password": {
+						"value": "[parameters('AzureSqlDatabase1_password')]"
+					},
+					"LS_Data_lake_accountKey": {
+						"value": "[parameters('LS_Data_lake_accountKey')]"
+					},
+					"RC_BLOB_connectionString": {
+						"value": "[parameters('RC_BLOB_connectionString')]"
+					},
+					"AKV_LS_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AKV_LS_properties_typeProperties_baseUrl')]"
+					},
+					"ASQLRC_properties_typeProperties_server": {
+						"value": "[parameters('ASQLRC_properties_typeProperties_server')]"
+					},
+					"ASQLRC_properties_typeProperties_database": {
+						"value": "[parameters('ASQLRC_properties_typeProperties_database')]"
+					},
+					"ASQLRC_properties_typeProperties_userName": {
+						"value": "[parameters('ASQLRC_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase1_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					},
+					"LS_Data_lake_properties_typeProperties_url": {
+						"value": "[parameters('LS_Data_lake_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "rcadfnov_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Event_triger_properties_typeProperties_scope": {
+						"value": "[parameters('Event_triger_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'rcadfnov_ArmTemplate_0')]"
+			]
+		}
+	]
+}
