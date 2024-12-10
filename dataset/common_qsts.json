@@ -1,0 +1,23 @@
+{
+	"name": "common_qsts",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RC_BLOB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Commonly Used Questions (1).xlsx",
+				"folderPath": "input",
+				"container": "testrcdataset"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

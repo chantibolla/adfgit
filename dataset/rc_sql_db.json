@@ -1,0 +1,27 @@
+{
+	"name": "rc_sql_db",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "name",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "chanti",
+			"table": "azure_db"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

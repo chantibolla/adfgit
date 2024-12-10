@@ -1,0 +1,104 @@
+{
+	"name": "Commonqst",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RC_BLOB",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"FolderName": {
+				"type": "String"
+			},
+			"FileName": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().FolderName",
+					"type": "Expression"
+				},
+				"container": "testrcdataset"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Panel",
+				"type": "String"
+			},
+			{
+				"name": "Project Id",
+				"type": "String"
+			},
+			{
+				"name": "GUID",
+				"type": "String"
+			},
+			{
+				"name": "Member ID",
+				"type": "String"
+			},
+			{
+				"name": "Click Date",
+				"type": "String"
+			},
+			{
+				"name": "Prescreen Entry",
+				"type": "String"
+			},
+			{
+				"name": "Client Entry",
+				"type": "String"
+			},
+			{
+				"name": "End Link Redirect",
+				"type": "String"
+			},
+			{
+				"name": "Entry Type",
+				"type": "String"
+			},
+			{
+				"name": "Source",
+				"type": "String"
+			},
+			{
+				"name": "Client Status",
+				"type": "String"
+			},
+			{
+				"name": "External Member ID",
+				"type": "String"
+			},
+			{
+				"name": "Age",
+				"type": "String"
+			},
+			{
+				"name": "Country",
+				"type": "String"
+			},
+			{
+				"name": "Gender",
+				"type": "String"
+			},
+			{
+				"name": "State/Province",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

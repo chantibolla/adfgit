@@ -1,0 +1,22 @@
+{
+	"name": "blob_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "RC_BLOB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Mislabeled IDs 658494.xlsx",
+				"folderPath": "input",
+				"container": "testrcdataset"
+			}
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

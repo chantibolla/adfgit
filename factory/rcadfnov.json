@@ -1,0 +1,9 @@
+{
+	"name": "rcadfnov",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e512adfe-2f18-41fd-889f-5bc683da7ed3",
+		"tenantId": "136e8d4d-0eaa-4479-82ed-6e82b226530a"
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"name": "Event_triger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "rc_data_copy",
+					"type": "PipelineReference"
+				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "Event Trigger",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/testrcdataset/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/988bbad3-94cd-4192-b70e-fceb7e135552/resourceGroups/rc_azure_cloud/providers/Microsoft.Storage/storageAccounts/rcazurestorageaccount",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
