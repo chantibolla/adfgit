@@ -1,0 +1,17 @@
+{
+	"name": "ramya_git",
+	"properties": {
+		"activities": [
+			{
+				"name": "ramya",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"annotations": []
+	}
+}
