@@ -1,0 +1,17 @@
+{
+	"name": "chanti_git",
+	"properties": {
+		"activities": [
+			{
+				"name": "chantibranch",
+				"type": "Wait",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
+				}
+			}
+		],
+		"annotations": []
+	}
+}
